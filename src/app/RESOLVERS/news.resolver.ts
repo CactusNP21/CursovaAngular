@@ -3,8 +3,9 @@ import {inject} from "@angular/core";
 import {BackendService} from "../SERVICES/backend.service";
 import {News} from "../MODELS/models";
 import {Observable} from "rxjs";
+import {NewsStoreService} from "../SERVICES/news-store.service";
 
-export const newsResolver: ResolveFn<Observable<News[]>> = (route, state) => {
-  const backendS = inject(BackendService);
-  return backendS.getNews<News[]>();
+export const newsResolver: ResolveFn<Promise<News[]>> = (route, state) => {
+  const store = inject(NewsStoreService);
+  return store.getNews();
 };

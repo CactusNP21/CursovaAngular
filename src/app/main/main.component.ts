@@ -17,13 +17,15 @@ import {NgIf} from "@angular/common";
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
-export class MainComponent implements OnInit{
+export class MainComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {
   }
+
   news: News[] = []
+
   ngOnInit() {
     this.activatedRoute.data.subscribe(params => {
-      this.news = params['news'];
+      this.news = params['news'] as News[];
     })
   }
 

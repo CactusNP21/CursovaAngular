@@ -13,7 +13,7 @@ import {RouterLink} from "@angular/router";
 })
 export class NewsCardComponent {
   public item: News = {
-    id: '',
+    id: 0,
     title: '',
     description: '',
     imgUrl: '',
